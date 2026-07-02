@@ -6,7 +6,8 @@ import tkinter as tk
 from tkinter import ttk
 
 num_square= 0
-high_score=0
+with open('C:/Users/PC/OneDrive/coding/Coding files/personal/Snake Game/high_score', 'r') as file:
+    high_score= int(file.read())
 
 def game():
     # noinspection PyAbstractClass
@@ -75,8 +76,9 @@ def game():
             global num_square, high_score
 
             if num_square > high_score:
-                with open('C:\\Users\\PC\\OneDrive\\coding\\Coding files\\Snake Game\\high_score', 'w') as file:
+                with open('C:/Users/PC/OneDrive/coding/Coding files/personal/Snake Game/high_score', 'w') as file:
                     file.write(str(num_square))
+                    high_score= num_square
             #if player loses
             if self.player.y >= self.border_up.y:
                 pyglet.app.exit()
@@ -1737,7 +1739,7 @@ def home_screen():
             for r in range(6):
                 self.rowconfigure(r, weight=1, uniform='group1')
 
-            back_image= tk.PhotoImage(file='C:/Users/PC/OneDrive/coding/Coding files/personal/Snake Game/Background1.png')
+            back_image= tk.PhotoImage(file='C:/Users/PC/OneDrive/coding/Coding files/personal/Snake Game/background.png')
             back_label= tk.Label(self, image= back_image)
             back_label.place(x=0, y=0, relwidth=1, relheight=1)
             back_label.image = back_image  # type: ignore
@@ -1770,7 +1772,7 @@ def home_screen():
             for r in range(6):
                 self.rowconfigure(r, weight=1, uniform='group1')
 
-            back_image= tk.PhotoImage(file='C:/Users/PC/OneDrive/coding/Coding files/personal/Snake Game/Background1.png')
+            back_image= tk.PhotoImage(file='C:/Users/PC/OneDrive/coding/Coding files/personal/Snake Game/background.png')
             back_label= tk.Label(self, image= back_image)
             back_label.place(x=0, y=0, relwidth=1, relheight=1)
             back_label.image = back_image  # type: ignore
